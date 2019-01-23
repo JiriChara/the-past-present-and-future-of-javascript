@@ -1,10 +1,19 @@
 import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
-import './registerServiceWorker';
+import Eagle from 'eagle.js';
+
+import 'normalize.css';
+import 'animate.css/animate.css';
+import 'eagle.js/dist/eagle.css';
+import 'eagle.js/dist/themes/agrume/agrume.css';
+
+import App from '@/App.vue';
+import router from '@/router';
+import store from '@/store';
+import '@/registerServiceWorker';
 
 Vue.config.productionTip = false;
+
+Vue.use(Eagle);
 
 new Vue({
   router,

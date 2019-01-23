@@ -1,18 +1,16 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+.eg-theme-agrume
+  .eg-slideshow
+    slide(enter='bounceInLeft' leave='bounceOutLeft')
+     .center.frontpage
+        h1 The Past, Present and Future of
+        img(src='@/assets/js-logo.png')
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { Slideshow } from 'eagle.js';
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld,
-  },
+  mixins: [Slideshow],
 };
 </script>
