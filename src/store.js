@@ -5,12 +5,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-
-  },
-  mutations: {
-
-  },
-  actions: {
-
+    slides: [
+      {
+        name: 'FrontPage',
+        path: '',
+      },
+      {
+        name: 'TheDarkPast',
+        path: '/the-dark-past',
+      },
+    ],
   },
 });
