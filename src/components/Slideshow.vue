@@ -4,8 +4,10 @@
     .eg-slideshow
       div(v-for="slide in availableSlides")
         slide(
-          enter='bounceInRight'
-          leave='bounceOutLeft'
+          enterNext='bounceInRight'
+          leaveNext='bounceOutLeft'
+          enterPrev='bounceInLeft'
+          leavePrev='bounceOutRight'
           :class='`slide-${slide.name}`'
         )
           router-view
@@ -13,7 +15,7 @@
 
 <script>
 import { Slideshow } from 'eagle.js';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
   mixins: [Slideshow],
@@ -27,12 +29,14 @@ export default {
   watch: {
     currentSlideIndex: 'updateUrl',
 
-    step: 'updateUrl',
-
     $route: 'updateSlides',
   },
 
   methods: {
+    ...mapMutations({
+      setCurrentIndex: 'setCurrent',
+    }),
+
     updateUrl(step) {
       const { name } = this.availableSlides[step - 1];
 
@@ -47,11 +51,8 @@ export default {
       const index = this.availableSlides
         .findIndex(slide => slide.name === route.name) + 1;
 
+      this.setCurrentIndex(index);
       this.currentSlideIndex = index;
-
-      this.$nextTick(() => {
-        this.step = index;
-      });
     },
   },
 };

@@ -1,5 +1,7 @@
 import Vue from 'vue';
-import Eagle from 'eagle.js';
+import Eagle, { Options } from 'eagle.js';
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
 
 import 'normalize.css';
 import 'animate.css/animate.css';
@@ -12,6 +14,9 @@ import store from '@/store';
 import '@/registerServiceWorker';
 
 import '@/style/main.scss';
+
+hljs.registerLanguage('js', javascript);
+Options.hljs = hljs;
 
 Vue.config.productionTip = false;
 
