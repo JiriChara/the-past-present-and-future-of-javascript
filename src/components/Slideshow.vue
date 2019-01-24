@@ -6,6 +6,7 @@
         slide(
           enter='bounceInRight'
           leave='bounceOutLeft'
+          :class='`slide-${slide.name}`'
         )
           router-view
 </template>
@@ -24,15 +25,11 @@ export default {
   },
 
   watch: {
-    currentSlideIndex: {
-      handler: 'updateUrl',
-      immediate: true,
-    },
+    currentSlideIndex: 'updateUrl',
 
-    step: {
-      handler: 'updateUrl',
-      immediate: true,
-    },
+    step: 'updateUrl',
+
+    $route: 'updateSlides',
   },
 
   methods: {
@@ -44,6 +41,17 @@ export default {
           name,
         });
       }
+    },
+
+    updateSlides(route) {
+      const index = this.availableSlides
+        .findIndex(slide => slide.name === route.name) + 1;
+
+      this.currentSlideIndex = index;
+
+      this.$nextTick(() => {
+        this.step = index;
+      });
     },
   },
 };

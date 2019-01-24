@@ -3,8 +3,8 @@
   h1 The Dark Past..
 </template>
 
-<style scoped>
-.center {
-  background-color: red;
+<style lang="scss" scoped>
+h1 {
+  color: white;
 }
 </style>

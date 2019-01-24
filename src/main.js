@@ -11,6 +11,8 @@ import router from '@/router';
 import store from '@/store';
 import '@/registerServiceWorker';
 
+import '@/style/main.scss';
+
 Vue.config.productionTip = false;
 
 Vue.use(Eagle);
