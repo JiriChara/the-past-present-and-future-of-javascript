@@ -18,6 +18,6 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: '/the-past-present-and-future-of-javascript',
   routes,
 });

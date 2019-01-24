@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.8080aebdfddded1317e3dfd7b2f95a11.js"
+  "precache-manifest.134f62ce2dd6f6240bd81a9439bf1044.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "the-past-present-and-future-of-javascript"});
